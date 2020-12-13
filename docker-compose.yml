@@ -2,8 +2,9 @@ version: '3'
 volumes:
   dados:
 networks:
-  banco:
+  database:
   web:
+  queues:
 services:
   db:
     image: postgres:9.6
@@ -16,7 +17,7 @@ services:
       - ./scripts:/scripts
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - banco
+      - database
   frontend: 
     image: nginx:1.13
     volumes: 
@@ -38,7 +39,24 @@ services:
     working_dir: /app
     command: bash ./app.sh
     networks:
-      - banco
+      - database
       - web
+      - queues
     depends_on: 
       - db
+  queue:
+    image: redis:3.2
+    networks:
+      - queues
+  worker:
+    image: python:3.6
+    volumes:
+      # Mapeamento do Caminho do Worker
+      - ./worker:/worker
+    working_dir: /worker
+    command: bash ./app.sh
+    networks:
+      - queues
+    depends_on: 
+      - queue
+
