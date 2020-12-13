@@ -2,6 +2,10 @@
 
 ### E-mail worker built with Nginx, Python, Redis and PostgreSQL, using Docker Compose to facilitate installation in any environment:
 
+<p align="center">
+  <img src="./assets/images/containers_structure.png" alt="Image the containers structure" width="1280">
+</p>
+
 ### To install the application :
 
 To use this application you will need to have Docker installed, Ok! For install this project after clone, use next steps:
@@ -17,6 +21,8 @@ After complete installation, verify if images are run in the your Docker:
 $ docker ps
 ```
 View this aplication at: http://localhost
+
+View your file of the e-mails in: http://localhost/api
 
 ### A partial view of the application running in the browser:
 
