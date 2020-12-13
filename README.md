@@ -1,4 +1,4 @@
-## Docker E-mail worker built with Nginx, Python, Redis and PostgreSQL
+## Docker E-mail worker built with Nginx, Python, Redis and PostgreSQL - COD3R Cursos Udemy
 
 ### E-mail worker built with Nginx, Python, Redis and PostgreSQL, using Docker Compose to facilitate installation in any environment:
 
